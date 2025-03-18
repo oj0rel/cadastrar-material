@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Retirar Material</title>
+    <script type="text/javascript" src="js/classe.js"></script>
+</head>
+<body>
+    <h1>Retirar Material</h1>
+    <p><label for="txtQuantidade">Quantidade para retirar:</label><input id="txtQuantidade" type="text" autofocus></p>
+    <p id="txtMensagem"></p>
+
+    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
+       <button id="btnGravar" type="button" onclick="entrar()">Gravar</button></p>
+
+    <script type="text/javascript">
+        function entrar() {
+            let mensagem;
+            const quantidadeRetirada = Number(document.getElementById('txtQuantidade').value);
+
+            if (!sessionStorage.getItem("codigo")) {
+                mensagem = "Nenhum material cadastrado. Por favor, cadastre um material primeiro.";
+                document.getElementById('txtMensagem').innerHTML = `<b>${mensagem}</b>`;
+                return;
+            }
+
+            if (document.getElementById('txtQuantidade').value=="") {
+                mensagem = "Preencha a quantidade a retirar.";
+                document.getElementById('txtQuantidade').focus();
+            } else if (isNaN(quantidadeRetirada)) {
+                mensagem = "Preencha uma quantidade numérica.";
+                document.getElementById('txtQuantidade').focus();
+            } else if (quantidadeRetirada < 0) {
+                mensagem = "O valor deve ser maior que 0.";
+                document.getElementById("txtQuantidade").focus();
+            } else {
+                const material1 = new Material();
+                material1.obterInformacoes();
+                
+                if (quantidadeRetirada > material1.quantidadeMaterial) {
+                    mensagem = "Não há essa quantidade para retirar.";
+                    document.getElementById("txtQuantidade").focus();
+                } else {
+                    material1.retirarMaterial(quantidadeRetirada);
+                    mensagem = "Material retirado com sucesso!";
+                }
+            }
+            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
+        }
+    </script>
+</body>
+</html>

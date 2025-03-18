@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script type="text/javascript" src="js/classe.js"></script>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <p><label for="txtEmail">Email:</label><input id="txtEmail" type="email" placeholder="Digite o email certo" autofocus></p>
+    <p><label for="txtSenha">Senha:</label><input id="txtSenha" type="password" placeholder="Digite a senha certa"></p>
+
+    <p id="txtMensagem"></p>
+
+    <p><button id="btnEncerrar" type="button" onclick="sair()">Encerrar</button>
+        <button id="btnGravar" type="button" onclick="entrar()">Entrar</button>
+    </p>
+
+    <script type="text/javascript">
+        function sair() {
+            location.replace('js-av2-encerrar.html');
+        }
+        function entrar() {
+            let mensagem;
+
+            if(document.getElementById("txtEmail").value == "") {
+                mensagem = "Preencha o campo de Email.";
+                document.getElementById("txtEmail").focus();
+            } else if (document.getElementById("txtEmail").value != "teste@teste.com") {
+                mensagem = "Email incorreto!";
+                document.getElementById("txtEmail").focus();
+            } else if (document.getElementById("txtSenha").value == "") {
+                mensagem = "Preencha o campo de Senha.";
+                document.getElementById("txtSenha").focus();
+            } else if (document.getElementById("txtSenha").value != "teste") {
+                mensagem = "Senha incorreta!";
+                document.getElementById("txtSenha").focus();
+            } else {
+                window.open("js-av2-menu.html");
+            }
+            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dados do Material</title>
+    <script type="text/javascript" src="js/classe.js"></script>
+</head>
+<body>
+    <h1>Dados do Material</h1>
+    <p><label for="txtCodigo">Código do Material:</label><input type="text" id="txtCodigo" disabled></p>
+    <p><label for="txtNome">Nome do Material:</label><input type="text" id="txtNome" disabled></p>
+    <p><label for="txtDescricao">Descrição do Material:</label><input type="text" id="txtDescricao" disabled></p>
+    <p><label for="txtQuantidade">Quantidade que possui:</label><input type="text" id="txtQuantidade" disabled></p>
+
+    <p><button id="btnRetornar" type="button" onclick="history.back()" autofocus>Retornar</button></p>
+    <script type="text/javascript">
+        const material1 = new Material();
+        material1.obterInformacoes();
+        
+        document.getElementById('txtCodigo').value = material1.codigo;
+        document.getElementById('txtNome').value = material1.nome;
+        document.getElementById('txtDescricao').value = material1.descricaoMaterial;
+        document.getElementById('txtQuantidade').value = material1.quantidadeMaterial;
+    </script>
+</body>
+</html>
