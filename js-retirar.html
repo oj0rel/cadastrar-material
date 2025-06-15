@@ -4,49 +4,26 @@
     <meta charset="UTF-8">
     <title>Retirar Material</title>
     <script type="text/javascript" src="js/classe.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Retirar Material</h1>
-    <p><label for="txtQuantidade">Quantidade para retirar:</label><input id="txtQuantidade" type="text" autofocus></p>
-    <p id="txtMensagem"></p>
 
-    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
-       <button id="btnGravar" type="button" onclick="entrar()">Gravar</button></p>
+    <div class="conteudo-da-tela">
+        <h1>Retirar Material</h1>
 
-    <script type="text/javascript">
-        function entrar() {
-            let mensagem;
-            const quantidadeRetirada = Number(document.getElementById('txtQuantidade').value);
+        <div class="campos-preencher">
+            <p><label for="txtQuantidade">Quantidade para retirar:</label><input id="txtQuantidade" type="text" autofocus></p>
+        </div>
+        <p id="txtMensagem"></p>
 
-            if (!sessionStorage.getItem("codigo")) {
-                mensagem = "Nenhum material cadastrado. Por favor, cadastre um material primeiro.";
-                document.getElementById('txtMensagem').innerHTML = `<b>${mensagem}</b>`;
-                return;
-            }
+        <div class="botoes">
+            <p>
+                <button id="btnRetornar" class="btn-custom" type="button" onclick="history.back()">Retornar</button>
+                <button id="btnGravar" class="btn-custom" type="button" onclick="entrar()">Gravar</button>
+            </p>
+        </div>
+    </div>
 
-            if (document.getElementById('txtQuantidade').value=="") {
-                mensagem = "Preencha a quantidade a retirar.";
-                document.getElementById('txtQuantidade').focus();
-            } else if (isNaN(quantidadeRetirada)) {
-                mensagem = "Preencha uma quantidade numérica.";
-                document.getElementById('txtQuantidade').focus();
-            } else if (quantidadeRetirada < 0) {
-                mensagem = "O valor deve ser maior que 0.";
-                document.getElementById("txtQuantidade").focus();
-            } else {
-                const material1 = new Material();
-                material1.obterInformacoes();
-                
-                if (quantidadeRetirada > material1.quantidadeMaterial) {
-                    mensagem = "Não há essa quantidade para retirar.";
-                    document.getElementById("txtQuantidade").focus();
-                } else {
-                    material1.retirarMaterial(quantidadeRetirada);
-                    mensagem = "Material retirado com sucesso!";
-                }
-            }
-            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
-        }
-    </script>
+    <script src="js/funcoes-retirar.js"></script>
 </body>
 </html>

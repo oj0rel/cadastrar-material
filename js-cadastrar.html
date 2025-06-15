@@ -4,40 +4,28 @@
     <meta charset="UTF-8">
     <title>Cadastrar Material</title>
     <script type="text/javascript" src="js/classe.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Cadastramento de Material</h1>
-    <p><label for="txtCodigo">Código do Material:</label><input id="txtCodigo" type="text" placeholder="Digite o código do material" autofocus></p>
-    <p><label for="txtNome">Nome do Material:</label><input id="txtNome" type="text" placeholder="Digite o nome do material"></p>
-    <p><label for="txtDescricao">Descrição do Material:</label><input id="txtDescricao" type="text" placeholder="Digite a descrição do material"></p>
 
-    <p id="txtMensagem"></p>
+    <div class="conteudo-da-tela">
+        <h1>Cadastramento de Material</h1>
 
-    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
-        <button id="btnGravar" type="button" onclick="cadastrar()">Gravar</button>
-    </p>
+        <div class="campos-preencher">
+            <p><label for="txtCodigo">Código do Material:</label><input id="txtCodigo" type="text" placeholder="Digite o código do material" autofocus></p>
+            <p><label for="txtNome">Nome do Material:</label><input id="txtNome" type="text" placeholder="Digite o nome do material"></p>
+            <p><label for="txtDescricao">Descrição do Material:</label><input id="txtDescricao" type="text" placeholder="Digite a descrição do material"></p>
+        </div>
+        <p id="txtMensagem"></p>
 
-    <script type="text/javascript">
-        function cadastrar() {
-            let mensagem;
-            if (document.getElementById('txtCodigo').value == "") {
-                mensagem = "Preencha o campo de código.";
-                document.getElementById('txtCodigo').focus();
-            } else if (document.getElementById("txtNome").value == "") {
-                mensagem = "Preencha o nome do material.";
-                document.getElementById("txtNome").focus();
-            } else if (document.getElementById('txtDescricao').value == "") {
-                mensagem = "Preencha a descrição do material.";
-                document.getElementById('txtDescricao').focus();
-            } else {
-                const material1 = new Material();
-                material1.cadastrar(document.getElementById('txtCodigo').value,
-                                document.getElementById('txtNome').value, document.getElementById("txtDescricao").value,
-                                0);
-                mensagem = "Material cadastrado com sucesso!";
-            }
-            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
-        }
-    </script>
+        <div class="botoes">
+            <p>
+                <button id="btnRetornar" class="btn-custom" type="button" onclick="history.back()">Retornar</button>
+                <button id="btnGravar" class="btn-custom" type="button" onclick="cadastrar()">Gravar</button>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/funcoes-cadastrar.js"></script>
 </body>
 </html>

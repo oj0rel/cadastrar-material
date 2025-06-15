@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #020024;
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    color: #ffffff;
+    margin: 18px;
+}
+
+h2 {
+    color: #ffffff;
+    text-align: center;
+    margin: 0px;
+}
+
+p {
+    color: #e0e0e0;
+}
+
+#txtMensagem {
+    display: none;
+}
+
+/* Estilo da caixa de login */
+.conteudo-da-tela {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo dos inputs e botões */
+.campos-preencher {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.campos-preencher p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+}
+
+.campos-preencher p label {
+    align-self: flex-start;
+    padding-left: 100px;
+    width: 80%;
+    text-align: left;
+}
+
+/* Ajuste no input também para alinhar com o label */
+.campos-preencher input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+}
+
+/* Ajustes para o bloco de botões */
+.botoes {
+    width: 100%;
+    text-align: center;
+}
+
+.botoes p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-custom {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #00d4ff;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #009ec9;
+}
+
+.links-menu a{
+    color: #000;
+    text-decoration: none;
+}

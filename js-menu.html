@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu Principal</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Menu Principal</h1>
-    <p><a href="javascript:location.assign('js-cadastrar.html');">Cadastrar material</a></p>
-    <p><a href="javascript:location.assign('js-adicionar.html');">Adicionar quantidade de material</a></p>
-    <p><a href="javascript:location.assign('js-retirar.html');">Retirar quantidade de material</a></p>
-    <p><a href="javascript:location.assign('js-dados.html');">Dados do Material</a></p>
-    <p><a href="javascript:location.replace('js-encerrar.html');">Encerrar</a></p>
+
+    <div class="conteudo-da-tela">
+        <h1>Menu Principal</h1>
+
+        <div class="links-menu">
+            <p><button id="btnCadastrarMaterial" class="btn-custom" type="button" onclick="redirecionarParaCadastro()">Cadastrar material</button></p>
+            <p><button id="btnAdicionarMaterial" class="btn-custom" onclick="redirecionarParaAdicionar()">Adicionar quantidade de material</button></p>
+            <p><button id="btnRetirarMaterial" class="btn-custom" onclick="redirecionarParaRetirar()">Retirar quantidade de material</button></p>
+            <p><button id="btnDadosMaterial" class="btn-custom" onclick="redirecionarParaDados()">Dados do Material</button></p>
+            <p><button id="btnEncerrarMaterial" class="btn-custom" onclick="redirecionarParaEncerrar()">Encerrar</button></p>
+        </div>
+    </div>
+
+    <script src="js/funcoes-menu.js"></script>
 </body>
 </html>

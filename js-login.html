@@ -4,44 +4,29 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script type="text/javascript" src="js/classe.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Login</h1>
 
-    <p><label for="txtEmail">Email:</label><input id="txtEmail" type="email" placeholder="Digite o email certo" autofocus></p>
-    <p><label for="txtSenha">Senha:</label><input id="txtSenha" type="password" placeholder="Digite a senha certa"></p>
+    <div class="conteudo-da-tela">
+        <h1>Cadastro de Material</h1>
+        <h2>Login</h2>
 
-    <p id="txtMensagem"></p>
+        <div class="campos-preencher">
+            <p><label for="txtEmail">Email:</label><input id="txtEmail" type="email" placeholder="Digite o email certo" autofocus></p>
+            <p><label for="txtSenha">Senha:</label><input id="txtSenha" type="password" placeholder="Digite a senha certa"></p>
+        </div>
+        <p id="txtMensagem"></p>
 
-    <p><button id="btnEncerrar" type="button" onclick="sair()">Encerrar</button>
-        <button id="btnGravar" type="button" onclick="entrar()">Entrar</button>
-    </p>
+        <div class="botoes">
+            <p>
+                <button id="btnGravar" class="btn-custom" type="button" onclick="entrar()">Entrar</button>
+                <button id="btnEncerrar" class="btn-custom" type="button" onclick="sair()">Encerrar</button>
+            </p>
+        </div>
+    </div>
 
-    <script type="text/javascript">
-        function sair() {
-            location.replace('js-av2-encerrar.html');
-        }
-        function entrar() {
-            let mensagem;
-
-            if(document.getElementById("txtEmail").value == "") {
-                mensagem = "Preencha o campo de Email.";
-                document.getElementById("txtEmail").focus();
-            } else if (document.getElementById("txtEmail").value != "teste@teste.com") {
-                mensagem = "Email incorreto!";
-                document.getElementById("txtEmail").focus();
-            } else if (document.getElementById("txtSenha").value == "") {
-                mensagem = "Preencha o campo de Senha.";
-                document.getElementById("txtSenha").focus();
-            } else if (document.getElementById("txtSenha").value != "teste") {
-                mensagem = "Senha incorreta!";
-                document.getElementById("txtSenha").focus();
-            } else {
-                window.open("js-av2-menu.html");
-            }
-            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`
-        }
-    </script>
+    <script src="js/funcoes-login.js"></script>
 </body>
 </html>
 
